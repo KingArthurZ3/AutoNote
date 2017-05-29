@@ -47,8 +47,24 @@ public class SpeechTest
     {
         return long_text;
     }
+    
+    /**
+     * sets the subject of the note
+     * 
+     * @param sub
+     *            subject of the note
+     */
+    public void setSubject( String sub )
+    {
+        subject = sub;
+    }
 
-
+    /**
+     * updates the long_text to the most recently said text
+     * 
+     * @param text
+     *            the new text
+     */
     public void updateText( String text )
     {
         
@@ -61,7 +77,11 @@ public class SpeechTest
 
     }
 
-
+    /**
+     * returns the subject of the note
+     * 
+     * @return subject of the note
+     */
     public String getSubject()
     {
         if ( !subject.equals( "" ) )
@@ -71,12 +91,25 @@ public class SpeechTest
         return "";
     }
 
-
+    /**
+     * returns the microphone analyzer instance
+     * 
+     * @return mic instance
+     */
     public MicrophoneAnalyzer getMic()
     {
         return mic;
     }
 
+    /**
+     * returns the speech duplex instance
+     * 
+     * @return duplex the speech duplex
+     */
+    public GSpeechDuplex getDuplex()
+    {
+        return duplex;
+    }
 
     public SpeechTest()
     {

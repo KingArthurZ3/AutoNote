@@ -95,7 +95,34 @@ public class Note
 
     }
 
-
+    /**
+     * returns the entire history vocabulary set
+     * 
+     * @return historyVocabSet the history vocabulary set
+     */
+    public Set<String> getHistorySet()
+    {
+        for ( String res : historyVocabInitial )
+        {
+            // System.out.println( res );
+        }
+        return historyVocabSet;
+    }
+    
+    /**
+     * returns the entire history vocabulary set
+     * 
+     * @return scienceVocabSet the science vocabulary set
+     */
+    public Set<String> getScienceSet()
+    {
+        for ( String res : scienceVocabInitial )
+        {
+            // System.out.println( res );
+        }
+        return scienceVocabSet;
+    }
+    
     /**
      * returns the entire history vocab list
      */
@@ -105,6 +132,33 @@ public class Note
         {
             System.out.println( res );
         }
+    }
+    
+    /**
+     * Precondition: user must specify the subject to add to adds a word to the
+     * a specified vocab list
+     * 
+     * @param result
+     *            the result to be added to
+     * @param subject
+     *            the subject specified by the user
+     */
+    public void addVocabList( List<String> result, String subject )
+    {
+
+        if ( subject.toLowerCase().equals( "history" ) )
+        {
+            historyVocabSet.addAll( result );
+        }
+        else if ( subject.toLowerCase().equals( "science" ) )
+        {
+            scienceVocabSet.addAll( result );
+        }
+        else
+        {
+            return;
+        }
+
     }
 
 

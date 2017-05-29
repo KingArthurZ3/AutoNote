@@ -11,7 +11,32 @@ public class Client
     public final static String FILE_TO_RECEIVED = "c:/Users/bzhu136/Dropbox/recv.jpg";  
 
     public final static int FILE_SIZE = 1000022386; 
+    
+    /**
+     * returns the address of the server / local host
+     * 
+     * @return SERVER address
+     */
+    public String getServerAddress()
+    {
+        return SERVER;
+    }
+    
+    /**
+     * returns the file path of the download file
+     * 
+     * @return FILE_TO_RECEIVED file path
+     */
+    public String getFilePath()
+    {
+        return FILE_TO_RECEIVED;
+    }
 
+    /**
+     * Downloads specified file from the server, directed to the designated path
+     * 
+     * @throws IOException
+     */
     public void run() throws IOException 
     {
         int bytesRead;
