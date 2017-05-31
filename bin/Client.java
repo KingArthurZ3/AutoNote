@@ -3,12 +3,16 @@ package bin;
 import java.io.*;
 import java.net.*;
 
+
+/**
+ * Class that handles receiving files from other people
+ */
 public class Client 
 {
-    
+
     public final static int SOCKET_PORT = 13267;     // socket port we use
     public final static String SERVER = "127.0.0.1";  // localhost 
-    public final static String FILE_TO_RECEIVED = "c:/Users/bzhu136/Dropbox/recv.jpg";  
+    public final static String FILE_TO_RECEIVED = "c:/Users/bzhu136/Dropbox/recv.jpg";  //file to receive
 
     public final static int FILE_SIZE = 1000022386; 
     

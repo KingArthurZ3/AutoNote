@@ -11,35 +11,52 @@ import java.util.*;
 import com.darkprograms.speech.microphone.MicrophoneAnalyzer;
 
 
+/**
+ * Note file that contains algorithms formatting, creates note files, and manages vocab lists
+ */
 public class Note
 {
+    // the name of the note
     private String noteName;
 
+    // variable that holds the state of the microphone
     private int noSound;
 
+    // the complete set of history vocabulary, updated with every line
     private Set<String> historyVocabSet = new HashSet<String>();
 
+    // map that stores the frequency of each history word
     private TreeMap<String, Integer> historyWordFrequency = new TreeMap<String, Integer>();
 
+    // initial history vocabulary list
     private ArrayList<String> historyVocabInitial = new ArrayList(
         Arrays.asList( "war", "battle", "bill", "act", "rights", "compromise", "government", "famine" ) );
 
+    // the complete set of science vocabulary, updated with every line
     private Set<String> scienceVocabSet = new HashSet<String>();
 
+    // map that stores the frequency of each science word
     private TreeMap<String, Integer> scienceWordFrequency = new TreeMap<String, Integer>();
 
+    // initial science vocabulary list
     private ArrayList<String> scienceVocabInitial = new ArrayList( Arrays.asList( "chemistry", "diffusion", "law" ) );
 
+    // list of points
     private ArrayList<String> points;
 
+    // microphone analyzer instance
     MicrophoneAnalyzer loc;
 
+    // speech test instance
     SpeechTest speech;
 
+    // File that contains all of the APUSH vocabulary
     File apushVocab = new File( "APUSHList.txt" );
 
+    // PrintWriter instance, writes to historyNote.txt
     PrintWriter writer;
 
+    // BufferedWriter instance
     BufferedWriter docWriter;
 
 
@@ -77,6 +94,9 @@ public class Note
     }
 
 
+    /**
+     * Helper method that initializes the initial history vocab set
+     */
     private void initHistoryList()
     {
         Scanner scan;
@@ -95,6 +115,7 @@ public class Note
 
     }
 
+
     /**
      * returns the entire history vocabulary set
      * 
@@ -108,7 +129,8 @@ public class Note
         }
         return historyVocabSet;
     }
-    
+
+
     /**
      * returns the entire history vocabulary set
      * 
@@ -122,7 +144,8 @@ public class Note
         }
         return scienceVocabSet;
     }
-    
+
+
     /**
      * returns the entire history vocab list
      */
@@ -133,7 +156,8 @@ public class Note
             System.out.println( res );
         }
     }
-    
+
+
     /**
      * Precondition: user must specify the subject to add to adds a word to the
      * a specified vocab list
@@ -233,8 +257,11 @@ public class Note
 
     /**
      * writes notes to file
-     * @param text the most recent notes said
-     * @throws IOException if file writer cannot writer to file
+     * 
+     * @param text
+     *            the most recent notes said
+     * @throws IOException
+     *             if file writer cannot writer to file
      */
     public void createNotes( String text ) throws IOException
     {
@@ -248,13 +275,13 @@ public class Note
             return;
         }
         output = this.formatAdjustWithWords( text );
-//        System.out.println("before adding output: " + output);
-        writer.append('\n' + output);
+        // System.out.println("before adding output: " + output);
+        writer.append( '\n' + output );
         writer.flush();
-        
-//        System.out.println( "the latest word added is: " + output );
 
-//         this.changeWordFrequency( text );
+        // System.out.println( "the latest word added is: " + output );
+
+        // this.changeWordFrequency( text );
 
     }
 

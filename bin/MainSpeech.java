@@ -9,14 +9,30 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 
-public class MainSpeech implements KeyListener
+/**
+ * Contains all GUIS and has all classes, runs everything
+ */
+public class MainSpeech
 {
 
+    /**
+     * previous text spoken by user
+     */
     static String oldText;
 
+    /**
+     * most recent text said by user
+     */
     static String newText;
 
 
+    /**
+     * Main method for running all of the guis, creating notes, and sending
+     * files
+     * 
+     * @throws IOException
+     *             when files cannot be created or accessed
+     */
     public static void main( String[] args ) throws IOException
     {
         SpeechTest speech = new SpeechTest();
@@ -70,27 +86,4 @@ public class MainSpeech implements KeyListener
 
     }
 
-
-    @Override
-    public void keyTyped( KeyEvent e )
-    {
-        // TODO Auto-generated method stub
-
-    }
-
-
-    @Override
-    public void keyPressed( KeyEvent e )
-    {
-        // TODO Auto-generated method stub
-
-    }
-
-
-    @Override
-    public void keyReleased( KeyEvent e )
-    {
-        // TODO Auto-generated method stub
-
-    }
 }

@@ -25,16 +25,25 @@ import com.darkprograms.speech.recognizer.GoogleResponse;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
 
 
+/**
+ * Speech Test that contains GUI, microphone, and GSpeech duplex, which handles
+ * bulk of speech to text processing
+ */
 public class SpeechTest
 {
     // long string used to store everything that was said
     private String long_text = "Begin";
+
+    // short string used to store the new text
     private String short_text = "";
 
+    // subject of the note
     private String subject = "";
 
+    // microphone analyzer instance
     final MicrophoneAnalyzer mic;
 
+    // speech duplex instance
     final GSpeechDuplex duplex;
 
 
@@ -47,7 +56,8 @@ public class SpeechTest
     {
         return long_text;
     }
-    
+
+
     /**
      * sets the subject of the note
      * 
@@ -59,6 +69,7 @@ public class SpeechTest
         subject = sub;
     }
 
+
     /**
      * updates the long_text to the most recently said text
      * 
@@ -67,15 +78,16 @@ public class SpeechTest
      */
     public void updateText( String text )
     {
-        
-        Scanner scan = new Scanner(text);
 
-        while(scan.hasNextLine()){
+        Scanner scan = new Scanner( text );
+
+        while ( scan.hasNextLine() )
+        {
             long_text = scan.nextLine();
         }
 
-
     }
+
 
     /**
      * returns the subject of the note
@@ -91,6 +103,7 @@ public class SpeechTest
         return "";
     }
 
+
     /**
      * returns the microphone analyzer instance
      * 
@@ -100,6 +113,7 @@ public class SpeechTest
     {
         return mic;
     }
+
 
     /**
      * returns the speech duplex instance
@@ -111,6 +125,10 @@ public class SpeechTest
         return duplex;
     }
 
+
+    /**
+     * Constructor with gui that displays speech
+     */
     public SpeechTest()
     {
         mic = new MicrophoneAnalyzer( FLACFileWriter.FLAC );
@@ -212,6 +230,7 @@ public class SpeechTest
         {
             String old_text = "";
 
+
             public void onResponse( final GoogleResponse gr )
             {
                 String output = "";
@@ -248,7 +267,7 @@ public class SpeechTest
                 // System.out.println("getText method returns: " + getText());
 
             }
-            
+
         } );
     }
 }
